@@ -7,8 +7,11 @@ const connectDB = async () => {
       // Ensure your IP (e.g., 103.120.31.178/32) is whitelisted in MongoDB Atlas Network Access settings
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      serverSelectionTimeoutMS: 5000,
+      serverSelectionTimeoutMS: 30000,
       socketTimeoutMS: 45000,
+      connectTimeoutMS: 30000,
+      retryWrites: true,
+      retryReads: true
     });
 
     // Test the connection by creating a test document
