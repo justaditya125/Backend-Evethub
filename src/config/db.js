@@ -4,6 +4,7 @@ const connectDB = async () => {
   try {
     console.log('Attempting to connect to MongoDB...');
     const conn = await mongoose.connect('mongodb+srv://adityasah57671:aditya%402004@aditya.4fxbbuu.mongodb.net/eventify', {
+      // Ensure your IP (e.g., 103.120.31.178/32) is whitelisted in MongoDB Atlas Network Access settings
       useNewUrlParser: true,
       useUnifiedTopology: true,
       serverSelectionTimeoutMS: 5000,
