@@ -7,6 +7,7 @@ import {
   deleteEvent
 } from '../controllers/eventController.js';
 import { authenticateToken } from '../middleware/auth.js';
+import { validateEvent } from '../middleware/validation.js';
 
 const router = express.Router();
 
@@ -15,8 +16,8 @@ router.get('/', getEvents);
 router.get('/:id', getEvent);
 
 // Protected routes
-router.post('/', authenticateToken, createEvent);
-router.put('/:id', authenticateToken, updateEvent);
+router.post('/', authenticateToken, validateEvent, createEvent);
+router.put('/:id', authenticateToken, validateEvent, updateEvent);
 router.delete('/:id', authenticateToken, deleteEvent);
 
 export default router; 

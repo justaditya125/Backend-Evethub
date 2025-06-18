@@ -3,7 +3,10 @@ import mongoose from 'mongoose';
 const connectDB = async () => {
   try {
     console.log('Attempting to connect to MongoDB...');
-    const conn = await mongoose.connect('mongodb+srv://adityasah57671:aditya%402004@aditya.4fxbbuu.mongodb.net/eventify', {
+    
+    const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://adityasah57671:aditya%402004@aditya.4fxbbuu.mongodb.net/eventify';
+    
+    const conn = await mongoose.connect(MONGODB_URI, {
       // Ensure your IP (e.g., 103.120.31.178/32) is whitelisted in MongoDB Atlas Network Access settings
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -13,14 +16,6 @@ const connectDB = async () => {
       retryWrites: true,
       retryReads: true
     });
-
-    // Test the connection by creating a test document
-    const TestModel = mongoose.model('Test', new mongoose.Schema({ name: String }));
-    const testDoc = new TestModel({ name: 'test' });
-    await testDoc.save();
-    console.log('Test document saved successfully');
-    await TestModel.deleteOne({ name: 'test' });
-    console.log('Test document deleted successfully');
 
     console.log(`MongoDB Connected Successfully!`);
     console.log(`Database Name: ${conn.connection.name}`);
