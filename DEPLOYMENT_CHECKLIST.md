@@ -21,6 +21,10 @@
 - [x] Proper error handling implemented
 - [x] Input validation added
 
+## 🚀 Current Deployment
+
+**Live Backend Server:** https://backend-eventhub-l23x.onrender.com
+
 ## 🔧 Required Actions Before Deployment
 
 ### 1. **Create Environment File**
@@ -80,6 +84,12 @@ node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
 - [ ] `PUT /api/events/:id` - Update event (with auth)
 - [ ] `DELETE /api/events/:id` - Delete event (with auth)
 
+### 3. **Production Testing**
+- [ ] Test all endpoints on live server: https://backend-eventhub-l23x.onrender.com
+- [ ] Verify CORS is working with frontend
+- [ ] Test authentication flow in production
+- [ ] Monitor server logs for errors
+
 ## 🚨 Security Notes
 
 1. **Never commit `.env` file** - It's already in `.gitignore`
@@ -114,4 +124,9 @@ After deployment, monitor:
 - Database connection status
 - API response times
 - Memory usage
-- CPU usage 
+- CPU usage
+
+## 🔗 Useful Links
+
+- **Live Backend:** https://backend-eventhub-l23x.onrender.com
+- **GitHub Repository:** https://github.com/justaditya125/Backend-Evethub 
